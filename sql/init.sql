@@ -21,3 +21,7 @@ create policy "Allow anon read" on tasks for select using (true);
 create policy "Allow anon insert" on tasks for insert with check (true);
 create policy "Allow anon update" on tasks for update using (true) with check (true);
 create policy "Allow anon delete" on tasks for delete using (true);
+
+-- 4. 授予 anon / authenticated 角色表级操作权限（部分新项目默认未授予）
+grant select, insert, update, delete on public.tasks to anon;
+grant select, insert, update, delete on public.tasks to authenticated;
